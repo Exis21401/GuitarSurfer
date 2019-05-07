@@ -22,25 +22,35 @@ public class playerMovement_Translation : MonoBehaviour
     {
         float moveHorizontal = Input.GetAxisRaw("Horizontal");
         float moveVertical = Input.GetAxisRaw("Vertical");
+        Vector3 position = transform.position;
 
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W) && (position.z <= 9))
         {
             transform.Translate(Vector3.forward * speed * Time.deltaTime);
         }
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) && !moving && (position.x > -8))
         {
-            transform.Translate(Vector3.left * speed * Time.deltaTime);
+            transform.Translate(-4,0,0);
         }
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.S) && (position.z >= -9))
         {
             transform.Translate(Vector3.back * speed * Time.deltaTime);
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) && !moving && (position.x < 8))
         {
-            transform.Translate(Vector3.right * speed * Time.deltaTime);
+            transform.Translate(4,0,0);
         }
 
-        if (Input.GetAxis("Horizontal") != 0.0f | Input.GetAxis("Vertical") != 0.0f)
+        if (Input.GetKeyDown(KeyCode.W) | Input.GetKeyDown(KeyCode.A) | Input.GetKeyDown(KeyCode.S)| Input.GetKeyDown(KeyCode.D) == true)
+        {
+            moving = true;
+        }
+        if (Input.GetKeyUp(KeyCode.W) | Input.GetKeyUp(KeyCode.A) | Input.GetKeyUp(KeyCode.S) | Input.GetKeyUp(KeyCode.D) == true)
+        {
+            moving = false;
+        }
+
+        /*if (Input.GetAxis("Horizontal") != 0.0f | Input.GetAxis("Vertical") != 0.0f)
         {
             moving = true;
         }
@@ -48,6 +58,6 @@ public class playerMovement_Translation : MonoBehaviour
         else
         {
             moving = false;
-        }
+        }*/
     }
 }
