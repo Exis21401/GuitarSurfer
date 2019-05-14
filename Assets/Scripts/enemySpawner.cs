@@ -9,11 +9,11 @@ public class enemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+		spawnWave(1);
     }
     private void Update()
     {
-        spawnWave(1);
+   
     }
 
     void spawnWave(int wave)

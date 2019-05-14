@@ -21,7 +21,7 @@ public class trackMovement : MonoBehaviour
     {
        if (other.gameObject.name == "H_Track_End")
         {
-            transform.position = new Vector3(0, 0.45f, 18);
+            transform.position = new Vector3(0, 1, 18);
         }
     }
 }
