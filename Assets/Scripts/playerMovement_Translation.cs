@@ -18,6 +18,11 @@ public class playerMovement_Translation : MonoBehaviour
         Movement();
     }
 
+    void AutoMove()
+    {
+        transform.Translate(Vector3.back * speed/2 * Time.deltaTime);
+    }
+
     void Movement()
     {
         float moveHorizontal = Input.GetAxisRaw("Horizontal");
