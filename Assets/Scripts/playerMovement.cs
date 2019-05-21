@@ -12,7 +12,7 @@ public class playerMovement : MonoBehaviour
     float right;
     float forward;
     Rigidbody rb;
-    Vector3 vel;
+    //Vector3 vel;
     #endregion
 
     #region START AND UPDATE
@@ -23,7 +23,7 @@ public class playerMovement : MonoBehaviour
 
     // Update is called once per frame
     void Update(){
-        rb.velocity = vel;
+        //rb.velocity = vel;
         Movement();
         Accelerate();
     }

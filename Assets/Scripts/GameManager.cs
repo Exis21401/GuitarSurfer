@@ -5,9 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public int Lives;
     public void LoadLevel()
     {
         SceneManager.LoadScene("ProbuilderTest");
+    }
+
+    private void Start()
+    {
     }
 
 }

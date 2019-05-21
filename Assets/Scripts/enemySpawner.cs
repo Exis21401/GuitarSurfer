@@ -6,34 +6,29 @@ public class enemySpawner : MonoBehaviour
 {
     public GameObject enemy;
     private Vector3 enemySpawnPos;
+    public Transform track1;
+    public Transform track2;
+    public Transform track3;
+    public Transform track4;
+    public Transform track5;
+    public Transform spawnPosition;
     // Start is called before the first frame update
     void Start()
     {
-		spawnWave(1);
+        SpawnWave(1);
     }
     private void Update()
     {
-   
+
     }
 
-    void spawnWave(int wave)
+    void SpawnEnemy()
+    {
+        Instantiate(enemy, spawnPosition.position, Quaternion.identity);
+    }
+    void SpawnWave(int wave)
     {
         if (wave == 1)
-        {
-            Wave1();
-        }
-
-        if (wave == 2)
-        {
-            Wave1();
-        }
-
-        if (wave == 3)
-        {
-            Wave1();
-        }
-
-        if (wave == 4)
         {
             Wave1();
         }
@@ -41,11 +36,7 @@ public class enemySpawner : MonoBehaviour
 
     void Wave1()
     {
-        enemySpawnPos = new Vector3(-8, 2.1f, 18);
-        Instantiate(enemy, enemySpawnPos, transform.rotation);
-        enemySpawnPos = new Vector3(-4, 2.1f, 18);
-        Instantiate(enemy, enemySpawnPos, transform.rotation);
-        enemySpawnPos = new Vector3(0, 2.1f, 18);
-        Instantiate(enemy, enemySpawnPos, transform.rotation);
+        //spawnPosition = track2;
+        SpawnEnemy();
     }
 }
