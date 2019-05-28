@@ -9,9 +9,11 @@ public class playerCollisions : MonoBehaviour
     public bool canDie;
     private bool Armor;
     public GameObject ArmorMesh;
+    private GameObject Self;
     // Start is called before the first frame update
     void Start()
     {
+        Self = this.gameObject;
     }
 
     // Update is called once per frame
@@ -33,6 +35,7 @@ public class playerCollisions : MonoBehaviour
         }
         if (other.gameObject.tag == "Enemy" && Armor)
         {
+            ArmorMesh.SetActive(false);
             Armor = false;
         }
         if (other.gameObject.tag == "SpeedP")
@@ -42,8 +45,7 @@ public class playerCollisions : MonoBehaviour
         if (other.gameObject.tag == "ArmorP")
         {
             Armor = true;
-            Instantiate(ArmorMesh);
-            ArmorMesh.transform.SetParent(this.transform);
+            ArmorMesh.SetActive(true);
         }
     }
 }
