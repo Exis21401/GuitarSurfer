@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class playerCollisions : MonoBehaviour
 {
-    public GameManager gameManager;
+    public GameObject gameManager;
     public bool canDie;
     private bool Armor;
     public GameObject ArmorMesh;
@@ -14,6 +14,7 @@ public class playerCollisions : MonoBehaviour
     void Start()
     {
         Self = this.gameObject;
+        gameManager = GameObject.Find("gameManager");
     }
 
     // Update is called once per frame
@@ -27,6 +28,7 @@ public class playerCollisions : MonoBehaviour
         if (other.gameObject.tag == "Death" && canDie)
         {
             Destroy(this.gameObject);
+            gameManager.lives -= 1;
             SceneManager.LoadScene("Level_1");
         }
         if (other.gameObject.tag == "Enemy" && !Armor)
