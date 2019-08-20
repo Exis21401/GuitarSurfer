@@ -30,12 +30,4 @@ public class enemyMovement : MonoBehaviour
     {
         transform.Translate(Vector3.back * moveSpeed * Time.deltaTime, Space.World);
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.name == "H_Track_End")
-        {
-            Destroy(this.gameObject);
-        }
-    }
 }

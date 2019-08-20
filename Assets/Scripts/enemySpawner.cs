@@ -5,17 +5,23 @@ using UnityEngine;
 public class enemySpawner : MonoBehaviour
 {
     public GameObject enemy;
+    public GameObject speedUp;
+    public GameObject Armor;
     private Vector3 enemySpawnPos;
     public Transform track1;
     public Transform track2;
     public Transform track3;
     public Transform track4;
     public Transform track5;
-    public Transform spawnPosition;
+    public Transform spawnEnemy;
+    public Transform spawnPowerUp;
+    public Transform spawnArmor;
     // Start is called before the first frame update
     void Start()
     {
         SpawnWave(1);
+        SpawnSpeedP();
+        SpawnArmorP();
     }
     private void Update()
     {
@@ -24,7 +30,16 @@ public class enemySpawner : MonoBehaviour
 
     void SpawnEnemy()
     {
-        Instantiate(enemy, spawnPosition.position, Quaternion.identity);
+        Instantiate(enemy, spawnEnemy.position, Quaternion.identity);
+    }
+
+    void SpawnSpeedP()
+    {
+        Instantiate(speedUp, spawnPowerUp.position, Quaternion.identity);
+    }
+    void SpawnArmorP()
+    {
+        Instantiate(Armor, spawnArmor.position, Quaternion.identity);
     }
     void SpawnWave(int wave)
     {

@@ -29,28 +29,28 @@ public class playerMovement_Translation : MonoBehaviour
         float moveVertical = Input.GetAxisRaw("Vertical");
         Vector3 position = transform.position;
 
-        if (Input.GetKey(KeyCode.W) && (position.z <= 9))
+        /*if (Input.GetKey(KeyCode.W) && (position.z <= 9))
         {
             transform.Translate(Vector3.forward * speed * Time.deltaTime);
-        }
+        }*/
         if (Input.GetKey(KeyCode.A) && !moving && (position.x > -8))
         {
             transform.Translate(-4,0,0);
         }
-        if (Input.GetKey(KeyCode.S) && (position.z >= -9))
+        /*if (Input.GetKey(KeyCode.S) && (position.z >= -9))
         {
             transform.Translate(Vector3.back * speed * Time.deltaTime);
-        }
+        }*/
         if (Input.GetKey(KeyCode.D) && !moving && (position.x < 8))
         {
             transform.Translate(4,0,0);
         }
 
-        if (Input.GetKeyDown(KeyCode.W) | Input.GetKeyDown(KeyCode.A) | Input.GetKeyDown(KeyCode.S)| Input.GetKeyDown(KeyCode.D) == true)
+        if (Input.GetKeyDown(KeyCode.A) | Input.GetKeyDown(KeyCode.D) == true)
         {
             moving = true;
         }
-        if (Input.GetKeyUp(KeyCode.W) | Input.GetKeyUp(KeyCode.A) | Input.GetKeyUp(KeyCode.S) | Input.GetKeyUp(KeyCode.D) == true)
+        if (Input.GetKeyUp(KeyCode.A) | Input.GetKeyUp(KeyCode.D) == true)
         {
             moving = false;
         }
