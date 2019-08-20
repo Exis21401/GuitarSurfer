@@ -28,7 +28,7 @@ public class playerCollisions : MonoBehaviour
         if (other.gameObject.tag == "Death" && canDie)
         {
             Destroy(this.gameObject);
-            gameManager.lives -= 1;
+            //gameManager.lives -= 1;
             SceneManager.LoadScene("Level_1");
         }
         if (other.gameObject.tag == "Enemy" && !Armor)
