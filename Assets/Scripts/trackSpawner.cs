@@ -13,9 +13,9 @@ public class trackSpawner : MonoBehaviour
 
         SpawnTrack();
 
-        Invoke("SpawnTrack", 0.6f);
+        //Invoke("SpawnTrack", 0.6f);
 
-        Invoke("SpawnTrack", 0.6f);
+        //Invoke("SpawnTrack", 0.6f);
 
     }
 

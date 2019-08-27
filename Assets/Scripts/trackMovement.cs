@@ -4,20 +4,16 @@ using UnityEngine;
 
 public class trackMovement : MonoBehaviour
 {
-	private float speed;
-	private GameObject track;
-    //public float trackSpeed;
+    public float trackSpeed;
     // Start is called before the first frame update
     void Start()
     {
-		track = gameObject;
-		speed = track.GetComponent<GameManager.trackSpeed>();
 	}
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.right * speed * Time.deltaTime);
+        transform.Translate(Vector3.right * trackSpeed * Time.deltaTime);
     }
 
     private void OnTriggerEnter(Collider other)

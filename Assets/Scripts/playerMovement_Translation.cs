@@ -33,7 +33,7 @@ public class playerMovement_Translation : MonoBehaviour
         {
             transform.Translate(Vector3.forward * speed * Time.deltaTime);
         }*/
-        if (Input.GetKey(KeyCode.A) && !moving && (position.x > -8))
+        if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) && !moving && (position.x > -5))
         {
             transform.Translate(-4,0,0);
         }
@@ -41,16 +41,16 @@ public class playerMovement_Translation : MonoBehaviour
         {
             transform.Translate(Vector3.back * speed * Time.deltaTime);
         }*/
-        if (Input.GetKey(KeyCode.D) && !moving && (position.x < 8))
+        if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && !moving && (position.x < 5))
         {
             transform.Translate(4,0,0);
         }
 
-        if (Input.GetKeyDown(KeyCode.A) | Input.GetKeyDown(KeyCode.D) == true)
+        if (Input.GetKeyDown(KeyCode.A) | Input.GetKeyDown(KeyCode.D) | Input.GetKey(KeyCode.LeftArrow) == true)
         {
             moving = true;
         }
-        if (Input.GetKeyUp(KeyCode.A) | Input.GetKeyUp(KeyCode.D) == true)
+        if (Input.GetKeyUp(KeyCode.A) | Input.GetKeyUp(KeyCode.D) | Input.GetKey(KeyCode.RightArrow) == true)
         {
             moving = false;
         }

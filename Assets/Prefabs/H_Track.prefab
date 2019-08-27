@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 494295d2188815144a3d0ee79bc8deb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 30
+  trackSpeed: 30
 --- !u!54 &5196610697583739660
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -136,3 +136,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Lives: 0
+  player: {fileID: 0}
+  GameTime: 0
+  timeDisplay: 
