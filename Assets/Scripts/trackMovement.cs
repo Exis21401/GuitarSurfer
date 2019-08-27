@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class trackMovement : MonoBehaviour
 {
-    public float speed;
+	private float speed;
+	private GameObject track;
+    //public float trackSpeed;
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
+		track = gameObject;
+		speed = track.GetComponent<GameManager.trackSpeed>();
+	}
 
     // Update is called once per frame
     void Update()

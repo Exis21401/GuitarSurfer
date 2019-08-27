@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class playerCollisions : MonoBehaviour
 {
     public GameObject gameManager;
+	private GameObject movingTrack;
     public bool canDie;
     private bool Armor;
     public GameObject ArmorMesh;
@@ -15,6 +16,8 @@ public class playerCollisions : MonoBehaviour
     {
         Self = this.gameObject;
         gameManager = GameObject.Find("gameManager");
+		//movingTrack = GameObject.Find("H_Track");
+
     }
 
     // Update is called once per frame
@@ -33,6 +36,7 @@ public class playerCollisions : MonoBehaviour
         }
         if (other.gameObject.tag == "Enemy" && !Armor)
         {
+			//movingTrack.trackMovement.trackSpeed = trackSpeed / 2;
             transform.Translate(0, 0, -4);
         }
         if (other.gameObject.tag == "Enemy" && Armor)
