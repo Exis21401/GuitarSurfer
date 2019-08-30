@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4054852323491595982}
   - component: {fileID: 134963273995539353}
   - component: {fileID: 7043567903469189503}
-  - component: {fileID: 8059723532681724704}
+  - component: {fileID: 6624340552257847880}
   m_Layer: 0
   m_Name: ArmorUp
   m_TagString: ArmorP
@@ -88,7 +88,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6807470853095141452}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -105,8 +105,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b746c07eb6aa8c24cab802f25484b238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
---- !u!114 &8059723532681724704
+  speed: 12
+--- !u!114 &6624340552257847880
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,6 +115,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6807470853095141452}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93d46227c0ce3234b884021689c95893, type: 3}
+  m_Script: {fileID: 11500000, guid: 199d1358a41caff42a64ba53876ae602, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

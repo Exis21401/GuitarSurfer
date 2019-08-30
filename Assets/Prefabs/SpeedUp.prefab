@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 2159223635213771821}
   - component: {fileID: 2159223635213771818}
   - component: {fileID: 2159223635213771819}
-  - component: {fileID: 7361977368203015381}
   - component: {fileID: 8432089268649849819}
+  - component: {fileID: 2605143850950351773}
   m_Layer: 0
   m_Name: SpeedUp
   m_TagString: SpeedP
@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f973500d8f8fcae4fb2a9b6ab7cea3e9, type: 2}
+  - {fileID: 2100000, guid: a9fe4b9a1c58c2644bce5bb5cb6a22ef, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -93,18 +93,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7361977368203015381
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2159223635213771816}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93d46227c0ce3234b884021689c95893, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &8432089268649849819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,4 +105,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b746c07eb6aa8c24cab802f25484b238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 15
+--- !u!114 &2605143850950351773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2159223635213771816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 199d1358a41caff42a64ba53876ae602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

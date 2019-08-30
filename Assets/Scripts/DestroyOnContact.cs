@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DestroyOnContact : MonoBehaviour
 {
+	public bool isHTrackEnd;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +18,15 @@ public class DestroyOnContact : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(this.gameObject);
+
+		if (isHTrackEnd && other.gameObject.tag != "HTrack")
+		{
+			Destroy(other.gameObject);
+		}
+		else
+		{
+			Destroy(this.gameObject);
+		}
+        
     }
 }

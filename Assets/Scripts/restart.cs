@@ -9,7 +9,8 @@ public class restart : MonoBehaviour
 	public GameObject PausePanel;
 	public GameObject UI;
 	public bool isStartMenu;
-   public void Restart()
+
+	public void Restart()
 	{
 		PausePanel.SetActive(false);
 		UI.SetActive(true);	

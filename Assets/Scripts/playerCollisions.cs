@@ -44,8 +44,9 @@ public class playerCollisions : MonoBehaviour
         if (other.gameObject.tag == "Enemy" && !Armor) //if you dont have armor move down and speed down tracks
         {
             transform.Translate(0, 0, -4);
+			Destroy(other.gameObject);
 			trackSpeed_1 = 15;
-			trackSpeed_2 = 15;
+			trackSpeed_2 = 15;	
 		}
         if (other.gameObject.tag == "Enemy" && Armor) //if you have armor destroy it
         {

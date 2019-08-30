@@ -55,6 +55,7 @@ public class enemyRespawn : MonoBehaviour
 	}
 	private void onTriggerEnter(Collider other)
 	{
+		Destroy(this.gameObject);
 		SpawnEnemy(EnemyToSpawn.Random);
 	}
 }

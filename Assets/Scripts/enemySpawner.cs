@@ -4,90 +4,32 @@ using UnityEngine;
 
 public class enemySpawner : MonoBehaviour
 {
-	public GameObject enemy;
-	public GameObject speedUp;
-	public GameObject Armor;
-	private Vector3 enemySpawnPos;
-	public Transform track1;
-	public Transform track2;
-	public Transform track3;
-	public Transform track4;
-	public Transform track5;
-	public Transform spawnEnemy;
-	public Transform spawnPowerUp;
-	public Transform spawnArmor;
-	enum EnemyToSpawn {Random,Specific};
-	// Start is called before the first frame update
-	void Start()
-	{
-		SpawnWave(1);
-		SpawnSpeedP();
-		SpawnArmorP();
-	}
-	private void Update()
-	{
+	private float timeBetweenSpawns;
+	public float startTimeBetweenSpawns;
 
-	}
+	public GameObject[] Enemies;
+	private GameObject patternSpawned;
 
-	
-
-    void SpawnEnemy(EnemyToSpawn MyEnemy)
+    // Update is called once per frame
+    void FixedUpdate()
     {
-		if (MyEnemy == EnemyToSpawn.Specific)
+		if (timeBetweenSpawns <= 0) //if the delay between spawns reaches 0 we spawn new enemies
 		{
-			Instantiate(enemy, spawnEnemy.position, Quaternion.identity);
-		}
-		else if (MyEnemy == EnemyToSpawn.Random)
-		{
-			int trackPosition = Random.Range(1, 5);
-			switch (trackPosition)
+			int randomNumber = Random.Range(0, Enemies.Length); //we select a random pattern in the array
+			if (patternSpawned != null)
 			{
-				case 1:
-					spawnEnemy = track1;
-					break;
-				case 2:
-					spawnEnemy = track2;
-					break;
-				case 3:
-					spawnEnemy = track3;
-					break;
-				case 4:
-					spawnEnemy = track4;
-					break;
-				case 5:
-					spawnEnemy = track5;
-					break;
+				Destroy(patternSpawned);
 			}
-			Instantiate(enemy, spawnEnemy.position, Quaternion.identity);
+			else
+			{ 
+				patternSpawned = Instantiate(Enemies[randomNumber], transform.position, Quaternion.identity); //we spawn a random pattern in the array
+			}
+			
+			timeBetweenSpawns = startTimeBetweenSpawns; //restart the delay
 		}
-
-        
-    }
-
-    void SpawnSpeedP()
-    {
-        Instantiate(speedUp, spawnPowerUp.position, Quaternion.identity);
-    }
-    void SpawnArmorP()
-    {
-        Instantiate(Armor, spawnArmor.position, Quaternion.identity);
-    }
-    void SpawnWave(int wave)
-    {
-        if (wave == 1)
-        {
-            Wave1();
-        }
-    }
-
-    void Wave1()
-    {
-        //spawnPosition = track2;
-        SpawnEnemy(EnemyToSpawn.Random);
-    }
-
-	private void onTriggerEnter(Collider other)
-	{
-		SpawnEnemy(EnemyToSpawn.Random);
+		else
+		{
+			timeBetweenSpawns -= Time.deltaTime; //we decrease the time until it reaches 0 to spawn new enemies
+		}
 	}
 }
