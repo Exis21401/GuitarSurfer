@@ -10,7 +10,7 @@ public class playerCollisions : MonoBehaviour
     private bool Armor;
     public GameObject ArmorMesh;
     private GameObject Self;
-	public GameObject pausePanel;
+	public GameObject gameOverPanel;
 	public GameObject UI;
 	public GameObject track_1;
 	public GameObject track_2;
@@ -19,11 +19,9 @@ public class playerCollisions : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
     {
-		pausePanel.SetActive(false);
+		gameOverPanel.SetActive(false);
 		Self = this.gameObject;
         gameManager = GameObject.Find("gameManager");
-		track_1 = GameObject.Find("H_SceneTrack");
-		track_2 = GameObject.Find("H_Track");
 		trackSpeed_1 = track_1.GetComponent<trackMovement>().trackSpeed;
 		trackSpeed_2 = track_2.GetComponent<trackMovement>().trackSpeed;
 		//movingTrack = GameObject.Find("H_Track");
@@ -70,7 +68,7 @@ public class playerCollisions : MonoBehaviour
 	{
 		Time.timeScale = 0;
 		HideUI();
-		pausePanel.SetActive(true);
+		gameOverPanel.SetActive(true);
 		//Disable scripts that still work while timescale is set to 0
 	}
 	private void HideUI()

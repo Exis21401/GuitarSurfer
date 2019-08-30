@@ -8,15 +8,17 @@ public class restart : MonoBehaviour
 {
 	public GameObject PausePanel;
 	public GameObject UI;
+	public bool isStartMenu;
    public void Restart()
 	{
 		PausePanel.SetActive(false);
-		if (!UI)
-		{
-			UI.SetActive(true);
-		}	
+		UI.SetActive(true);	
 		Time.timeScale = 1;
-		SceneManager.LoadScene("Level_1");
+		if (!isStartMenu)
+		{
+			SceneManager.LoadScene("Level_1");
+		}
+		
 	}
 		
 }
