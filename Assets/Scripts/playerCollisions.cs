@@ -12,18 +12,18 @@ public class playerCollisions : MonoBehaviour
     private GameObject Self;
 	public GameObject gameOverPanel;
 	public GameObject UI;
-	public GameObject track_1;
-	public GameObject track_2;
-	public float trackSpeed_1;
-	public float trackSpeed_2;
+	//public GameObject track_1;
+	//public GameObject track_2;
+	//public float trackSpeed_1;
+	//public float trackSpeed_2;
 	// Start is called before the first frame update
 	void Start()
     {
 		gameOverPanel.SetActive(false);
 		Self = this.gameObject;
         gameManager = GameObject.Find("gameManager");
-		trackSpeed_1 = track_1.GetComponent<trackMovement>().trackSpeed;
-		trackSpeed_2 = track_2.GetComponent<trackMovement>().trackSpeed;
+		//trackSpeed_1 = track_1.GetComponent<trackMovement>().trackSpeed;
+		//trackSpeed_2 = track_2.GetComponent<trackMovement>().trackSpeed;
 		//movingTrack = GameObject.Find("H_Track");
 
 	}
@@ -45,8 +45,8 @@ public class playerCollisions : MonoBehaviour
         {
             transform.Translate(0, 0, -4);
 			Destroy(other.gameObject);
-			trackSpeed_1 = 15;
-			trackSpeed_2 = 15;	
+			//trackSpeed_1 = 15;
+			//trackSpeed_2 = 15;	
 		}
         if (other.gameObject.tag == "Enemy" && Armor) //if you have armor destroy it
         {
@@ -55,9 +55,13 @@ public class playerCollisions : MonoBehaviour
         }
         if (other.gameObject.tag == "SpeedP") // if you get speed power up, move forward and accelerate tracks
         {
-            transform.Translate(0, 0, 4);
-			trackSpeed_1 = 45;
-			trackSpeed_2 = 45;
+			if (Self.transform.position.z < 12)
+			{
+				transform.Translate(0, 0, 4);
+			}
+            
+			//trackSpeed_1 = 45;
+			//trackSpeed_2 = 45;
 		}
         if (other.gameObject.tag == "ArmorP")
         {

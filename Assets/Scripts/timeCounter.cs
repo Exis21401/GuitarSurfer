@@ -35,6 +35,7 @@ public class timeCounter : MonoBehaviour
 		}
 		if (Mathf.RoundToInt(gameTimer) >= 61)
 		{
+			UITime.SetActive(false);
 			Time.timeScale = 0;
 			winScreen.SetActive(true);
 		}

@@ -4,29 +4,27 @@ using UnityEngine;
 
 public class trackSpawner : MonoBehaviour
 {
-    public GameObject track;
-    private Vector3 trackSpawnPos;
-    // Start is called before the first frame update
-    void Start()
-    {
-        trackSpawnPos = new Vector3(0, 1, 18);
+	private float timeBetweenSpawns;
+	public float startTimeBetweenSpawns;
 
-        SpawnTrack();
-
-        //Invoke("SpawnTrack", 0.6f);
-
-        //Invoke("SpawnTrack", 0.6f);
-
-    }
+	public GameObject myTrack;
+	public Transform trackTransform;
 
     // Update is called once per frame
-    void Update()
+	void Start()
+	{
+	}
+    void FixedUpdate()
     {
-        
-    }
+		if (timeBetweenSpawns <= 0) //if the delay between spawns reaches 0 we spawn new enemies
+		{
+			Instantiate(myTrack, trackTransform.position, trackTransform.rotation);
+			timeBetweenSpawns = startTimeBetweenSpawns;
+		}
 
-    void SpawnTrack()
-    {
-        Instantiate(track, trackSpawnPos, transform.rotation);
-    }
+		else
+		{
+			timeBetweenSpawns -= Time.deltaTime; //we decrease the time until it reaches 0 to spawn new enemies
+		}
+	}
 }
