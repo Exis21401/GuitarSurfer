@@ -29,40 +29,50 @@ public class playerMovement_Translation : MonoBehaviour
         float moveVertical = Input.GetAxisRaw("Vertical");
         Vector3 position = transform.position;
 
-        /*if (Input.GetKey(KeyCode.W) && (position.z <= 9))
-        {
-            transform.Translate(Vector3.forward * speed * Time.deltaTime);
-        }*/
+
         if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) && !moving && (position.x > -5))
         {
             transform.Translate(-4,0,0);
         }
-        /*if (Input.GetKey(KeyCode.S) && (position.z >= -9))
-        {
-            transform.Translate(Vector3.back * speed * Time.deltaTime);
-        }*/
+
         if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && !moving && (position.x < 5))
         {
             transform.Translate(4,0,0);
         }
 
-        if (Input.GetKeyDown(KeyCode.A) | Input.GetKeyDown(KeyCode.D) | Input.GetKey(KeyCode.LeftArrow) == true)
-        {
+        if ((Input.GetKeyDown(KeyCode.A) | Input.GetKeyDown(KeyCode.D) | Input.GetKey(KeyCode.LeftArrow) == true))
+
+		{
             moving = true;
         }
-        if (Input.GetKeyUp(KeyCode.A) | Input.GetKeyUp(KeyCode.D) | Input.GetKey(KeyCode.RightArrow) == true)
-        {
+        if ((Input.GetKeyUp(KeyCode.A) | Input.GetKeyUp(KeyCode.D) | Input.GetKey(KeyCode.RightArrow) == true))
+
+		{
             moving = false;
         }
 
-        /*if (Input.GetAxis("Horizontal") != 0.0f | Input.GetAxis("Vertical") != 0.0f)
-        {
-            moving = true;
-        }
-
-        else
-        {
-            moving = false;
-        }*/
     }
+
+	public void MoveRight()
+	{
+		float moveHorizontal = Input.GetAxisRaw("Horizontal");
+		float moveVertical = Input.GetAxisRaw("Vertical");
+		Vector3 position = transform.position;
+
+		if (!moving && (position.x < 5))
+		{
+			transform.Translate(4, 0, 0);
+		}
+	}
+	public void MoveLeft()
+	{
+		float moveHorizontal = Input.GetAxisRaw("Horizontal");
+		float moveVertical = Input.GetAxisRaw("Vertical");
+		Vector3 position = transform.position;
+
+		if (!moving && (position.x > -5))
+		{
+			transform.Translate(-4, 0, 0);
+		}
+	}
 }
